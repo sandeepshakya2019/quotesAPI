@@ -1,7 +1,7 @@
 const express = require("express");
 const quotesController = require("../controllers/quotes.controller");
 
-const routes = express.Router();
+const route = express.Router();
 
 route.get("/", quotesController.getRoot);
 
