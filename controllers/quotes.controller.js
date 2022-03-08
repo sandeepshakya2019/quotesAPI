@@ -7,8 +7,12 @@ const getRoot = (req, res, next) => {
 };
 
 const getRandomQuotes = async (req, res, next) => {
-  const randomQuotes = await quotesModel.getRandomQuotes();
-  res.json({ Quote: randomQuotes.text });
+  try {
+    const randomQuotes = await quotesModel.getRandomQuotes();
+    res.json({ Quote: randomQuotes.text });
+  } catch (err) {
+    return next(err);
+  }
 };
 
 module.exports = {
