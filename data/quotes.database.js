@@ -6,11 +6,9 @@ let database;
 async function connect() {
   try {
     const client = await mongoClient.connect("mongodb://127.0.0.1:27017/");
-    console.log("MongoClient establish the connction");
     database = client.db("quotesAPI");
   } catch (err) {
     throw { Message: "Mongo Service is Not working" };
-    return err;
   }
 }
 function getDb() {
