@@ -1,16 +1,10 @@
 const express = require("express");
+const quotesController = require("../controllers/quotes.controller");
 
 const route = express.Router();
 
-route.get("/", (req, res) => {
-  res.send("This is the Quotes API");
-});
+route.get("/", quotesController.getRoot);
 
-route.get("/quote", (req, res) => {
-  res.json({
-    Quote:
-      "As you deep dive into web developer and the web developement deep dive into you !!! ",
-  });
-});
+route.get("/quote", quotesController.getRandomQuotes);
 
 module.exports = route;
